@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apititanic.views import SummaryView,SurvivalRateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/summary/',SummaryView.as_view()),
+    path('api/survival_rate',SurvivalRateView.as_view()),
 ]
