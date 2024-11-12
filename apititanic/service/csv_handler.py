@@ -36,7 +36,7 @@ class CSVHandler:
             for column in categorical_columns:
                 survival_rate_by_group = self.data.groupby(column)['Survived'].mean() * 100
                 result = survival_rate_by_group.reset_index()
-                result.columns = [column, 'TMS(%)'] 
+                result.columns = [column, 'TMS_Percent'] 
                 results[column] = result.to_dict(orient='records') 
             return results  
 
@@ -44,7 +44,7 @@ class CSVHandler:
             group_column_correct = columns_lower[group_column.lower()]
             survival_rate_by_group = self.data.groupby(group_column_correct)['Survived'].mean() * 100
             result = survival_rate_by_group.reset_index()
-            result.columns = [group_column_correct, 'Survival Rate (%)']
+            result.columns = [group_column_correct, 'Survival_Rate_percent']
             return result.to_dict(orient='records')
 
  

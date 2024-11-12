@@ -47,7 +47,7 @@ class AverageSurvivalRateView(APIView):
             res = {
                 'status':'success',
                 'column':column,
-                'taxa média de sobrevivencia':data
+                'taxa_media_de_sobrevivencia':data
             }
             return Response(res)
         
@@ -58,7 +58,7 @@ class AverageSurvivalRateView(APIView):
             )
         
 class CleanDataView(APIView):
-    """Envia os dados em JSON pela requisição e exibe o retorno desses dados com tratamento adequado"""
+    """Recebe os dados em JSON pela requisição e exibe o retorno desses dados com tratamento adequado"""
     def post(self, request, format=None):
         serializer = SurvivalSerializers(data=request.data,many=True)
         if serializer.is_valid():
